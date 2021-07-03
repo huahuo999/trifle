@@ -13,19 +13,169 @@
 
     <include layout="@layout/navigation_bar3"/>
 
+    <RelativeLayout
+        android:id="@+id/consumer_management_gongju"
+        android:background="@drawable/bt"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginTop="110dp"
+        android:layout_width="match_parent"
+        android:layout_height="145dp">
+
+        <LinearLayout
+            android:id="@+id/dd"
+            android:layout_marginLeft="7dp"
+            android:layout_marginTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:textSize="20dp"
+                android:layout_marginLeft="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="我的订单">
+            </TextView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/dd"
+            android:layout_marginTop="30dp"
+
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:layout_marginTop="3dp"
+                    android:id="@+id/gr_1"
+                    android:clickable="false"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/gr_1"
+                    android:background="#00000000"/>
+                <TextView
+                    android:layout_marginTop="2dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="待付款"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:layout_marginTop="3dp"
+                    android:id="@+id/gr_2"
+                    android:clickable="false"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/gr_2"
+                    android:background="#00000000"/>
+                <TextView
+                    android:layout_marginTop="2dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="已支付"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:layout_marginTop="3dp"
+                    android:id="@+id/gr_3"
+                    android:clickable="false"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/gr_3"
+                    android:background="#00000000"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="待评价"/>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:layout_marginTop="3dp"
+                    android:id="@+id/gr_4"
+                    android:clickable="false"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/gr_4"
+                    android:background="#00000000"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="退款/售后"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:layout_marginTop="3dp"
+                    android:id="@+id/gr_5"
+                    android:clickable="false"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/gr_5"
+                    android:background="#00000000"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="我的计划"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
 
     <LinearLayout
         android:id="@+id/consumer_management_own_information"
+        android:layout_below="@+id/consumer_management_gongju"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginTop="70dp"
-        android:padding="50dp"
+        android:layout_marginTop="80dp"
+
         >
 
         <Button
             android:id="@+id/consumer_management_own_information_btn"
-            android:layout_width="match_parent"
+            android:layout_gravity="center"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:background="@drawable/shape"
             android:gravity="center"
@@ -38,15 +188,14 @@
         android:layout_below="@+id/consumer_management_own_information"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:padding="50dp"
+        android:layout_marginTop="70dp"
         android:orientation="vertical" >
 
         <Button
             android:id="@+id/clothes_change_save_btn"
-            android:layout_width="match_parent"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:gravity="center"
+            android:layout_gravity="center"
             android:textSize="20dp"
             android:background="@drawable/shape"
             android:text="已保存的服装搭配" />
@@ -57,15 +206,14 @@
         android:layout_below="@+id/clothes_change_save"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:padding="50dp"
+        android:layout_marginTop="70dp"
         android:orientation="vertical" >
 
         <Button
             android:id="@+id/account_control_btn"
-            android:layout_width="match_parent"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:gravity="center"
+            android:layout_gravity="center"
             android:textSize="20dp"
             android:background="@drawable/shape"
             android:text="账号管理" />

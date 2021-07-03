@@ -16,21 +16,150 @@
     <include layout="@layout/navigation_designer3"/>
 
 
+    <RelativeLayout
+        android:id="@+id/designer_management_gongju"
+        android:background="@drawable/bt"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginTop="110dp"
+        android:layout_width="match_parent"
+        android:layout_height="145dp">
+
+        <LinearLayout
+            android:id="@+id/dd"
+            android:layout_marginLeft="7dp"
+            android:layout_marginTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:textSize="20dp"
+                android:layout_marginLeft="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="工具">
+            </TextView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/dd"
+            android:layout_marginTop="30dp"
+
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:layout_marginTop="3dp"
+                    android:id="@+id/gs_1"
+                    android:clickable="false"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/gs_1"
+                    android:background="#00000000"/>
+                <TextView
+                    android:layout_marginTop="2dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="地址管理"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:layout_marginTop="3dp"
+                    android:id="@+id/gs_2"
+                    android:clickable="false"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/gs_2"
+                    android:background="#00000000"/>
+                <TextView
+                    android:layout_marginTop="2dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="联系客服"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:layout_marginTop="3dp"
+                    android:id="@+id/gs_3"
+                    android:clickable="false"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/gs_3"
+                    android:background="#00000000"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="店铺管理"/>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:layout_marginTop="3dp"
+                    android:id="@+id/gs_4"
+                    android:clickable="false"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/gs_4"
+                    android:background="#00000000"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="入驻协议"/>
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+
+
     <LinearLayout
         android:id="@+id/designer_management_own_information"
+        android:layout_below="@+id/designer_management_gongju"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:layout_marginTop="70dp"
-        android:padding="50dp"
+        android:orientation="vertical"
         >
 
         <Button
             android:id="@+id/designer_management_own_information_btn"
-            android:layout_width="match_parent"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:background="@drawable/shape"
-            android:gravity="center"
+            android:layout_gravity="center"
             android:textSize="20dp"
             android:text="个人信息" />
     </LinearLayout>
@@ -40,15 +169,14 @@
         android:layout_below="@+id/designer_management_own_information"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:padding="50dp"
+        android:layout_marginTop="70dp"
         android:orientation="vertical" >
 
         <Button
             android:id="@+id/qualification"
-            android:layout_width="match_parent"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:gravity="center"
+            android:layout_gravity="center"
             android:textSize="20dp"
             android:background="@drawable/shape"
             android:text="资质认证" />
@@ -59,15 +187,14 @@
         android:layout_below="@+id/qualification_lay"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:padding="50dp"
+        android:layout_marginTop="70dp"
         android:orientation="vertical" >
 
         <Button
             android:id="@+id/account_control_btn2"
-            android:layout_width="match_parent"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:gravity="center"
+            android:layout_gravity="center"
             android:textSize="20dp"
             android:background="@drawable/shape"
             android:text="账号管理" />
