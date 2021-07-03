@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 
 import cn.itcast.handheldclass.BaseActivity;
+import cn.itcast.handheldclass.Detail_text.SettlementAgreementActivity;
 import cn.itcast.handheldclass.R;
 
 
@@ -72,6 +73,18 @@ public class DesignerOwnPageActivity extends BaseActivity {
             }
         });
 
+        //点击跳到入驻协议
+        ImageButton rzxy = (ImageButton) findViewById(R.id.gs_4);
+        rzxy.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                //Intent是一种运行时绑定（run-time binding）机制，它能在程序运行过程中连接两个不同的组件。
+                //在存放资源代码的文件夹下下，
+                Intent i = new Intent(DesignerOwnPageActivity.this , SettlementAgreementActivity.class);
+                //启动
+                startActivity(i);
+            }
+        });
 
 
     }

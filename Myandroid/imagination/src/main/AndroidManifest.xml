@@ -27,7 +27,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".Detail_text.SettlementAgreementActivity"></activity>
+        <activity android:name=".Detail_text.FzgsSettlementAgreementActivity"></activity>
+        <activity android:name=".Detail_text.SettlementAgreementActivity" />
         <activity android:name=".Consumer.ConsumerClothesSaveActivity" />
         <activity android:name=".Company.CompanyClothesChangeActivity" />
         <activity android:name=".Company.CompanySceneSelActivity" />

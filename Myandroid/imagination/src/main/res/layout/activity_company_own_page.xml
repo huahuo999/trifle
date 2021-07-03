@@ -23,7 +23,7 @@
         android:layout_marginRight="12dp"
         android:layout_marginTop="110dp"
         android:layout_width="match_parent"
-        android:layout_height="145dp">
+        android:layout_height="150dp">
 
         <LinearLayout
             android:id="@+id/dd"
@@ -56,7 +56,7 @@
                 android:orientation="vertical">
 
                 <ImageButton
-                    android:layout_marginTop="3dp"
+                    android:layout_marginTop="4dp"
                     android:id="@+id/gs_1"
                     android:clickable="false"
                     android:layout_width="wrap_content"
@@ -64,7 +64,7 @@
                     android:src="@drawable/gs_1"
                     android:background="#00000000"/>
                 <TextView
-                    android:layout_marginTop="2dp"
+                    android:layout_marginTop="3dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="地址管理"/>
@@ -78,7 +78,7 @@
                 android:orientation="vertical">
 
                 <ImageButton
-                    android:layout_marginTop="3dp"
+                    android:layout_marginTop="5dp"
                     android:id="@+id/gs_2"
                     android:clickable="false"
                     android:layout_width="wrap_content"
@@ -86,7 +86,7 @@
                     android:src="@drawable/gs_2"
                     android:background="#00000000"/>
                 <TextView
-                    android:layout_marginTop="2dp"
+                    android:layout_marginTop="4dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="联系客服"/>
@@ -100,7 +100,7 @@
                 android:orientation="vertical">
 
                 <ImageButton
-                    android:layout_marginTop="3dp"
+                    android:layout_marginTop="4dp"
                     android:id="@+id/gs_3"
                     android:clickable="false"
                     android:layout_width="wrap_content"
@@ -124,7 +124,7 @@
 
                 <ImageButton
                     android:layout_marginTop="3dp"
-                    android:id="@+id/gs_4"
+                    android:id="@+id/fzgs_4"
                     android:clickable="false"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 
 import cn.itcast.handheldclass.BaseActivity;
+import cn.itcast.handheldclass.Detail_text.FzgsSettlementAgreementActivity;
 import cn.itcast.handheldclass.R;
 
 public class CompanyOwnPageActivity extends BaseActivity {
@@ -67,6 +68,19 @@ public class CompanyOwnPageActivity extends BaseActivity {
                 //Intent是一种运行时绑定（run-time binding）机制，它能在程序运行过程中连接两个不同的组件。
                 //在存放资源代码的文件夹下下，
                 Intent i = new Intent(CompanyOwnPageActivity.this , CompanyAccountManagementActivity.class);
+                //启动
+                startActivity(i);
+            }
+        });
+
+        //点击导航栏第一个按钮跳转到形象打造页面
+        ImageButton fzgs = (ImageButton) findViewById(R.id.fzgs_4);
+        fzgs.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                //Intent是一种运行时绑定（run-time binding）机制，它能在程序运行过程中连接两个不同的组件。
+                //在存放资源代码的文件夹下下，
+                Intent i = new Intent(CompanyOwnPageActivity.this , FzgsSettlementAgreementActivity.class);
                 //启动
                 startActivity(i);
             }
