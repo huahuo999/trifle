@@ -27,7 +27,8 @@
             android:layout_marginLeft="7dp"
             android:layout_marginTop="5dp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            >
             <TextView
                 android:textSize="20dp"
                 android:layout_marginLeft="10dp"
@@ -35,6 +36,25 @@
                 android:layout_height="wrap_content"
                 android:text="我的订单">
             </TextView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/qb"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:textSize="20dp"
+                android:gravity="right"
+                android:layout_marginRight="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="全部>">
+            </TextView>
+
         </LinearLayout>
 
         <LinearLayout
