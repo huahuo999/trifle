@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#DAEAEF"
-    tools:context=".Consumer.ConsumerDesignerOwn4Activity">
+    tools:context=".Consumer.ConsumerDesignerXxOwn2Activity">
+
 
     //引入布局
     <include layout = "@layout/navbar"
@@ -24,7 +25,7 @@
             android:layout_height="300dp"
             android:layout_marginLeft="50dp"
             android:layout_marginRight="50dp"
-            android:background="@drawable/fz_4"
+            android:background="@drawable/b"
             />
     </LinearLayout>
 
@@ -64,7 +65,7 @@
             android:textSize="20dp"
             android:textStyle="bold"
             android:gravity="center"
-            android:text="12年从业经验，定制您的服装" />
+            android:text="8年从业经验，打造您的个人形象" />
     </LinearLayout>
 
     <LinearLayout
@@ -118,7 +119,6 @@
             android:gravity="center"
             android:text="***" />
     </LinearLayout>
-
 
     <LinearLayout
         android:orientation="horizontal"

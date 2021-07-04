@@ -47,32 +47,6 @@ public class ConsumerSceneSelActivity extends BaseActivity {
                         Toast.LENGTH_LONG).show();
             }
         });
-//
-//        //点击导航栏第二个按钮跳转到形象设计师选择界面
-//        ImageButton designer_search = (ImageButton) findViewById(R.id.designer_search);
-//        designer_search.setOnClickListener(new View.OnClickListener(){
-//            @Override
-//            public void onClick(View v){
-//                //Intent是一种运行时绑定（run-time binding）机制，它能在程序运行过程中连接两个不同的组件。
-//                //在存放资源代码的文件夹下下，
-//                Intent i = new Intent(ConsumerSceneSelActivity.this , ConsumerChooseDerActivity.class);
-//                //启动
-//                startActivity(i);
-//            }
-//        });
-//
-//        //点击导航栏第三个按钮跳转到个人信息管理界面
-//        ImageButton personal = (ImageButton) findViewById(R.id.personal);
-//        personal.setOnClickListener(new View.OnClickListener(){
-//            @Override
-//            public void onClick(View v){
-//                //Intent是一种运行时绑定（run-time binding）机制，它能在程序运行过程中连接两个不同的组件。
-//                //在存放资源代码的文件夹下下，
-//                Intent i = new Intent(ConsumerSceneSelActivity.this , ConsumerOwnPageActivity.class);
-//                //启动
-//                startActivity(i);
-//            }
-//        });
 
         //点击提交跳转到形象打造页面
         Button scene_selection_check = (Button) findViewById(R.id.scene_selection_check);
