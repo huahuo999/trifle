@@ -85,7 +85,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="45dp"
                 android:background="@drawable/button"
-                android:text="资料存档"
+                android:text="存档"
                 android:textSize="23dp" />
 
             <Button
