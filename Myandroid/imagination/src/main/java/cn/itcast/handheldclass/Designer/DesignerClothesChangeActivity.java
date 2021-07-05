@@ -258,9 +258,9 @@ public class DesignerClothesChangeActivity extends BaseActivity {
             int x_Person = (int)iter_person.next();
             ArrayList y_Cloth = new_ClothOutsideEdge.get(x_Cloth);
             ArrayList y_Person = cloth_arr_position.get(x_Person);
-            int gap_Cloth = (int)y_Cloth.get(1) - (int)y_Cloth.get(0);
-            int gap_Person = (int)y_Person.get(1) - (int)y_Person.get(0);
-            double k = gap_Cloth / gap_Person;
+            float gap_Cloth = (int)y_Cloth.get(1) - (int)y_Cloth.get(0);
+            float gap_Person = (int)y_Person.get(1) - (int)y_Person.get(0);
+            float k = gap_Cloth / gap_Person;
             for(int i = (int)y_Person.get(0);i<=(int)y_Person.get(1)+1;i++)
             {
                 int person_index = i - (int)y_Person.get(0);
