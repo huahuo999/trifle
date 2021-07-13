@@ -1,4 +1,5 @@
 from tensorboardX import SummaryWriter
+import tensorflow as tf
 import tensorboard
 writer = SummaryWriter("log")
 for i in range(100):
