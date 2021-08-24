@@ -14,12 +14,14 @@ from scrapy.exporters import JsonItemExporter
 import MySQLdb
 from twisted.enterprise import adbapi
 
+
 class ArticlespiderPipeline:
     def process_item(self, item, spider):
         return item
 
 
 class MysqlPipeline(object):
+    # 同步mysql入库 不建议
     def __init__(self):
         self.conn = MySQLdb.connect("127.0.0.1", 'root', '1234',
                                     'article_spider', charset='utf8', use_unicode=True)
@@ -28,8 +30,8 @@ class MysqlPipeline(object):
     def process_item(self, item, spider):
         insert_sql = """insert into cnblog_article(title, url, url_object_id,
          front_image_url, front_image_path, praise_nums, comment_nums, fav_nums, tag, content,create_date)
-         values (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"""
-
+         values (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s) on duplicate key update praise_nums=VALUES(praise_nums)"""
+        # on duplicate key update 处理主键冲突问题
         params = list()
         params.append(item.get("title", ""))
         params.append(item.get("url", ""))
@@ -51,10 +53,12 @@ class MysqlPipeline(object):
 
 
 class MysqlTwistedPipeline(object):
-    @classmethod
+    # 异步处理入库mysql
+
     def __init__(self, dbpool):
         self.dbpool = dbpool
 
+    @classmethod
     def from_settings(cls, settings):
         # 从setting里传入
         from MySQLdb.cursors import DictCursor
@@ -81,12 +85,12 @@ class MysqlTwistedPipeline(object):
         print(failure)
         # failure自动传进来
 
-
     def do_insert(self, cursor, item):
         insert_sql = """insert into cnblog_article(title, url, url_object_id,
                  front_image_url, front_image_path, praise_nums, comment_nums, fav_nums, tag, content,create_date)
-                 values (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"""
-
+                 values (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s) on duplicate key update praise_nums=VALUES(praise_nums)"""
+        # on duplicate key update
+        # 数据冲突就更新
         params = list()
         params.append(item.get("title", ""))
         params.append(item.get("url", ""))
@@ -101,8 +105,6 @@ class MysqlTwistedPipeline(object):
         params.append(item.get("content", ""))
         params.append(item.get("create_date", "1970-07-01"))
         cursor.execute(insert_sql, tuple(params))
-
-
 
 
 class JsonWithEncodingPipeline(object):
