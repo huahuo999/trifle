@@ -1,7 +1,6 @@
-
 from ArticleSpider.utils import zhihu_login_sel
-from ArticleSpider.settings import USER, PASSWORD
-import  scrapy
+from ArticleSpider.settings import ZHIHU_USER, ZHIHU_PASSWORD
+import scrapy
 
 
 class ZhihuSpider(scrapy.Spider):
@@ -15,10 +14,9 @@ class ZhihuSpider(scrapy.Spider):
 
     def start_requests(self):
         # 模拟登录拿到cookie
-        # 如何识别滑动验证码:1.使用opencv
         # 使用机器学习方法识别
-        l = zhihu_login_sel.Login(USER, PASSWORD, 6)
-        cookie_dict = l.login()
+        l = zhihu_login_sel.Login(ZHIHU_USER, ZHIHU_PASSWORD, 6)
+        cookie_dict = l.login_baidu()
 
         for url in self.start_urls:
             headers = {

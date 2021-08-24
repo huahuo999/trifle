@@ -14,6 +14,8 @@ import numpy as np
 import undetected_chromedriver.v2 as uc
 
 
+from ArticleSpider.settings import  BAIDU_AK, BAIDU_SK
+
 class Code():
     '''
     滑动验证码破解
@@ -51,9 +53,6 @@ class Code():
             current += s
             tracks.append(round(s))
             v = v0 + a * m
-        # 由于计算机计算的误差，导致模拟人类行为时，会出现分布移动总和大于真实距离，这里就把这个差添加到tracks中，也就是最后进行一步左移。
-        # tracks.append(-(sum(tracks) - distance * 0.5))
-        # tracks.append(10)
         return tracks
 
     def slide_verification(self, driver, slide_element, distance):
@@ -170,109 +169,16 @@ class Login(object):
         k = 1
         # while True:
         while k < self.retry:
-            # self.browser.switch_to.frame("tcaptcha_iframe")
-            # 获取滑动前页面的url网址
-            # 1. 获取原图
-            bg_img = self.wait.until(
-                Ec.presence_of_element_located((By.CSS_SELECTOR, '.yidun_bgimg .yidun_bg-img'))
-            )
-            # 获取滑块链接
-            # front_img = self.wait.until(
-            #     Ec.presence_of_element_located(
-            #         (By.CSS_SELECTOR, "#cdn2")))
-            front_img = self.wait.until(
-                Ec.presence_of_element_located((By.CSS_SELECTOR, '.yidun_bgimg .yidun_jigsaw'))
-            )
-
-            # 获取验证码滑动距离
-            distance = baidu.recognize("")
-            print('滑动距离是', distance)
-
-            # 2. 乘缩放比例， -去  滑块前面的距离  下面给介绍
-            distance = distance - 4
-            print('实际滑动距离是', distance)
-
-            # 滑块对象
-            element = self.browser.find_element_by_css_selector(
-                '.yidun_slider')
-            # 滑动函数
-            self.sli.slide_verification(self.browser, element, distance)
-
-            # 滑动之后的url链接
-            time.sleep(5)
-            # 登录框
-            try:
-                submit = self.wait.until(
-                    Ec.element_to_be_clickable((By.CSS_SELECTOR, '.Button.SignFlow-submitButton'))
-                )
-                submit.click()
-                time.sleep(3)
-            except:
-                pass
-
-            end_url = self.browser.current_url
-            print(end_url)
-
-            if end_url == "https://www.zhihu.com/":
-                return self.get_cookies()
-            else:
-                # reload = self.browser.find_element_by_css_selector("#reload div")
-                # self.browser.execute_script("arguments[0].click();", reload)
-                time.sleep(3)
-
-                k += 1
-
-        return None
-
-    def login(self):
-        # 请求网址
-        self.browser.get(self.url)
-        # 点击输入密码界面
-        # login_status = self.wait.until(
-        #     Ec.presence_of_element_located((By.XPATH, '//div[@class="switch-type"]'))
-        # )
-        # login_status.click()
-
-        self.browser.get(self.url)
-        login_element = self.browser.find_element_by_xpath(
-            '//*[@id="root"]/div/main/div/div/div/div[1]/div/div[1]/form/div[1]/div[2]')
-
-        self.browser.execute_script("arguments[0].click();", login_element)
-        time.sleep(5)
-
-        # 输入账号
-        username = self.wait.until(
-            Ec.element_to_be_clickable((By.CSS_SELECTOR, '.SignFlow-account input'))
-        )
-        username.send_keys(self.user)
-        # 输入密码
-        password = self.wait.until(
-            Ec.element_to_be_clickable((By.CSS_SELECTOR, '.SignFlow-password input'))
-        )
-        password.send_keys(self.password)
-
-        # 登录框
-        submit = self.wait.until(
-            Ec.element_to_be_clickable((By.CSS_SELECTOR, '.Button.SignFlow-submitButton'))
-        )
-        submit.click()
-        time.sleep(3)
-
-        k = 1
-        # while True:
-        while k < self.retry:
-            # self.browser.switch_to.frame("tcaptcha_iframe")
-            # 获取滑动前页面的url网址
-            # 1. 获取原图
             bg_img = self.wait.until(
                 Ec.presence_of_element_located((By.CSS_SELECTOR, '.yidun_bgimg .yidun_bg-img'))
             )
             background_url = bg_img.get_attribute('src')
-            background = "background.jpg"
-            self.sli.onload_save_img(background_url, "background.jpg")
+            backgroundFilename = "background.jpg"
+            self.sli.onload_save_img(background_url, backgroundFilename)
+            baidu = BaiDuLogin(BAIDU_AK, BAIDU_SK)
+
             # 获取验证码滑动距离
-            baidu = BaiDuLogin()
-            distance = baidu.recognize(background)
+            distance = baidu.recognize(backgroundFilename)
             print('滑动距离是', distance)
 
             # 2. 乘缩放比例， -去  滑块前面的距离  下面给介绍
@@ -301,15 +207,15 @@ class Login(object):
             print(end_url)
 
             if end_url == "https://www.zhihu.com/":
+                os.remove(backgroundFilename)
                 return self.get_cookies()
             else:
-                # reload = self.browser.find_element_by_css_selector("#reload div")
-                # self.browser.execute_script("arguments[0].click();", reload)
                 time.sleep(3)
 
                 k += 1
 
         return None
+
 
     def get_cookies(self):
         '''
@@ -344,31 +250,24 @@ class BaiDuLogin():
 
     def recognize(self, image_file):
         ACCESS_TOKEN = self.get_access_token()
-        API_KEY = self.ak
-        SECRET_KEY = self.sk
+        # 获取ACCESS_TOKEN
 
-        print("1. 读取目标图片 '{}'".format(image_file))
         with open(image_file, 'rb') as f:
             base64_data = base64.b64encode(f.read())
             base64_str = base64_data.decode('UTF8')
-        print("将 BASE64 编码后图片的字符串填入 PARAMS 的 'image' 字段")
+        # 按照图片路径打开图片并转换为base64格式
+
         PARAMS = {"image": base64_str}
-        MODEL_API_URL = ""
+        MODEL_API_URL = "https://aip.baidubce.com/rpc/2.0/ai_custom/v1/detection/lszhihu"
         request_url = "{}?access_token={}".format(MODEL_API_URL, ACCESS_TOKEN)
         headers = {'Content-Type': 'application/json'}
         response = requests.post(url=request_url, json=PARAMS, headers=headers)
         response_json = response.json()
         if "results" not in response_json:
             return None
-        if len(response.json()["results"]) == 0:
+        if len(response_json["results"]) == 0:
             return None
-        if "location" not in response_json()["results"][0]:
+        if "location" not in response_json["results"][0]:
             return None
-        return response_json()['results'][0]["location"]["left"]
+        return response_json['results'][0]["location"]["left"]
 
-
-if __name__ == "__main__":
-    # l = Login("用户名", "密码", 6)
-    # l.login_baidu()
-    baidu = BaiDuLogin()
-    baidu.recognize("")
