@@ -26,4 +26,10 @@ class ZhihuSpider(scrapy.Spider):
             yield scrapy.Request(url, cookies=cookie_dict, headers=headers, dont_filter=True)
 
     def parse(self, response, **kwargs):
-        pass
+        """
+        提取html页面的所有url 并跟踪这些url进行进一步爬取
+        如果格式为/question/xxx 就下载之后直接进入解析函数
+        :param response:
+        :param kwargs:
+        :return:
+        """
