@@ -33,6 +33,14 @@ sixteenSection = browser.find_element_by_xpath("/html/body/div[5]/div/table/tbod
 sixteenSection.click()
 sleep(3)
 
+chooseDate = browser.find_element_by_xpath("/html/body/div[5]/div/table/tbody/tr/td[2]/div/div[2]/div/div[2]/div[1]/div[1]/div[4]/div/div[1]/div[2]/span[1]/input")
+chooseDate.click()
+sleep(0.5)
+
+date = browser.find_element_by_xpath("//a[text()='10']")
+date.click()
+sleep(0.5)
+
 twentyEight = browser.find_element_by_xpath("/html/body/div[5]/div/table/tbody/tr/td[2]/div/div[2]/div/div[2]/div[1]/div[1]/div[4]/div/div[2]/div[3]/div[28]")
 twentyEight.click()
 sleep(1)
@@ -40,6 +48,15 @@ sleep(1)
 startTime = browser.find_element_by_xpath("/html/body/div[8]/div[2]/form/div[1]/table/tbody[2]/tr[2]/td[2]/div/span[1]/select[1]")
 startTime.click()
 sleep(0.5)
+Select(browser.find_element_by_name("start_time")).select_by_value("900")
 
-Select(driver.find_element_by_name("start_time")).select_by_value("900")
+endTime = browser.find_element_by_xpath("/html/body/div[9]/div[2]/form/div[1]/table/tbody[2]/tr[2]/td[2]/div/span[3]/select")
+endTime.click()
+sleep(0.5)
+Select(browser.find_element_by_name("start_time")).select_by_value("1300")
+
+submitseat = browser.find_element_by_xpath("/html/body/div[8]/div[2]/form/div[2]/input[1]")
+submitseat.click()
+sleep(0.5)
+
 
