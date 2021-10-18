@@ -127,6 +127,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+MEDIA_URL = '/media/'
 # 添加cross策略
 
 CORS_ORIGIN_WHITELIST = ('http://127.0.0.1:8080',)
