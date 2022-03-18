@@ -111,6 +111,7 @@ if __name__ == '__main__':
     entry1.insert(0, "201340216")
 
     entry2.grid(row=1, column=1)
+    
     entry2.insert(0, "172821")
 
     entry3.grid(row=2, column=1)
